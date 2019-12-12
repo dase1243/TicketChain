@@ -10,7 +10,6 @@ Read more detailed explanation of project [here](./Ticket.pdf).
 - [About](#about)
 - [Solution](#solution)
 - [Requirements](#requirements)
-- [PayPal setup](#paypal-setup)
 
 #   Repo scheme
 ```bash
@@ -79,41 +78,5 @@ Our proposition is to represent a ticket as <b>unique burnable ERC-721</b> token
 </ol>
 <li> Android SDK API 26
 
-# PayPal setup
-PayPal external adapter could be found [here](https://github.com/smartcontractkit/paypal-adapter).
 
-To use PayPal API you should create sandbox accounts on the website.
-
-<b>Send payout:</b>
-```curl
-curl --location --request POST "https://api.sandbox.paypal.com/v1/payments/payouts" \
-  --header "Content-Type: application/json" \
-  --header ": " \
-  --data "{
-  \"sender_batch_header\": {
-    \"sender_batch_id\": \"Payouts_2018_100007\",
-    \"email_subject\": \"You have a payout!\",
-    \"email_message\": \"You have received a payout! Thanks for using our service!\"
-  },
-  \"items\": [
-    {
-      \"recipient_type\": \"EMAIL\",
-      \"amount\": {
-        \"value\": \"9.87\",
-        \"currency\": \"USD\"
-      },
-      \"receiver\": \"some-account@business.example.com\",
-      \"sender_item_id\": \"201403140001\"
-    }
-  ]
-}"
-```
-
-<b>Get info about payout:</b>
-```
-curl --location --request GET "https://api.sandbox.paypal.com/v1/payments/payouts/1P916489AB900520A" \
-  --header "Content-Type: application/json"
-```
-
-Also you should append your access token to the headers.
 
