@@ -2,9 +2,9 @@ package come.manager.direct.hackuniversity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -17,7 +17,6 @@ import com.andrognito.pinlockview.PinLockView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import org.bouncycastle.math.raw.Mod;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.http.HttpService;
@@ -35,7 +34,7 @@ import come.manager.direct.hackuniversity.model.Event;
 import come.manager.direct.hackuniversity.model.Module;
 import come.manager.direct.hackuniversity.org.web3j.sample.Ticket;
 
-public class PinActivity extends AppCompatActivity{
+public class PinActivity extends AppCompatActivity {
     public static final String TAG = "PinLockView";
 
     private PinLockView mPinLockView;
@@ -47,7 +46,7 @@ public class PinActivity extends AppCompatActivity{
         public void onComplete(String pin) {
             Log.d(TAG, "Pin complete: " + pin);
 
-          //  if(pin.equals("1111")) {
+            //  if(pin.equals("1111")) {
             new AsyncDownLoadSmart().execute(pin);
 
             System.out.println();
@@ -63,6 +62,7 @@ public class PinActivity extends AppCompatActivity{
             Log.d(TAG, "Pin changed, new length " + pinLength + " with intermediate pin " + intermediatePin);
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +94,6 @@ public class PinActivity extends AppCompatActivity{
                 "{\"version\":3,\"id\":\"c9590b3f-e2eb-4a3f-96d1-0e5dcd304f7c\",\"address\":\"20cf3a494baacae2a74bf81b0e55970b756baa70\",\"Crypto\":{\"ciphertext\":\"650c7e4f2f80ae80426a8e3ea4d1cab891beea3854f010e816d9e2e7d4396984\",\"cipherparams\":{\"iv\":\"110a91cc184227022877ed6b0931cfd1\"},\"cipher\":\"aes-128-ctr\",\"kdf\":\"scrypt\",\"kdfparams\":{\"dklen\":32,\"salt\":\"ee158b8d1c315b6c6a777bd114896051e4e06e68e506f3df9ba4b556ce89e730\",\"n\":8192,\"r\":8,\"p\":1},\"mac\":\"2cec2b9449980cca057a62cdcd284d499f96a533093c559eb60132af61483747\"}}";
 
 
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -107,24 +106,18 @@ public class PinActivity extends AppCompatActivity{
         protected ArrayList<Event> doInBackground(Module[]... voids) {
 
 
-
-
-
-
-
-
             Web3j web3j = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/16480bf5a9ae46e79bca1aa836873e5f"));
             BigInteger _price = BigInteger.ONE;
             ArrayList<Event> events = new ArrayList<>();
             _price = BigInteger.valueOf(10);
-            for(int i = 0; i < voids[0].length; i++) {
+            for (int i = 0; i < voids[0].length; i++) {
                 String address = voids[0][i].getSmartcontract();
                 BigInteger _steps = BigInteger.ONE;
                 _steps = BigInteger.valueOf(3);
                 // We then need to load our Ethereum wallet file
                 // FIXME: Generate a new wallet file using the web3j command line tools https://docs.web3j.io/command_line.html
                 Credentials credentials1 = Credentials.create("9c215ede75b688ce2f30372140068c815b78b2eedfe8bd9af04d8d7fddd8ef2e");
-                Log.d(TAG,"Response string: " +  credentials1.getEcKeyPair().getPublicKey().toString());
+                Log.d(TAG, "Response string: " + credentials1.getEcKeyPair().getPublicKey().toString());
 
                 Ticket contract1 =
                         Ticket.load(address, web3j, credentials1, ManagedTransaction.GAS_PRICE,
@@ -149,7 +142,7 @@ public class PinActivity extends AppCompatActivity{
 
                     event.setEmail("info@info.ru");
 
-                    event.setImage(R.drawable.logo+"");
+                    event.setImage(R.drawable.logo + "");
                     event.setPrice("1200");
                     event.setOwner(address);
                     Boolean status = contract1.Is_active().send();
@@ -164,9 +157,6 @@ public class PinActivity extends AppCompatActivity{
             }
 
 
-
-
-
             return events;
         }
 
@@ -175,7 +165,7 @@ public class PinActivity extends AppCompatActivity{
             super.onPostExecute(aVoid);
             finish();
             Intent intent = new Intent(getApplicationContext(), ActivityWithWebView.class);
-            intent.putParcelableArrayListExtra("events",aVoid);
+            intent.putParcelableArrayListExtra("events", aVoid);
             startActivity(
                     intent
             );
@@ -183,11 +173,10 @@ public class PinActivity extends AppCompatActivity{
     }
 
 
-
     class AsyncDownLoadSmart extends AsyncTask<String, Void, Module[]> {
         String myURL = "http://savetickets.ibisolutions.ru/gen_json.php?id=";
 
-       @Override
+        @Override
         protected void onPreExecute() {
             super.onPreExecute();
             progressBar.setVisibility(View.VISIBLE);
@@ -201,7 +190,7 @@ public class PinActivity extends AppCompatActivity{
 
             String s = "";
             try {
-                s = doGet(myURL+voids[0]);
+                s = doGet(myURL + voids[0]);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -228,7 +217,7 @@ public class PinActivity extends AppCompatActivity{
 
         //add reuqest header
         connection.setRequestMethod("GET");
-        connection.setRequestProperty("User-Agent", "Mozilla/5.0" );
+        connection.setRequestProperty("User-Agent", "Mozilla/5.0");
         connection.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
         connection.setRequestProperty("Content-Type", "application/json");
 
@@ -242,7 +231,7 @@ public class PinActivity extends AppCompatActivity{
         bufferedReader.close();
 
 //      print result
-        Log.d(TAG,"Response string: " + response.toString());
+        Log.d(TAG, "Response string: " + response.toString());
 
 
         return response.toString();

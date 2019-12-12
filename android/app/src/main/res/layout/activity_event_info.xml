@@ -35,7 +35,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="30dp"
             android:layout_toRightOf="@+id/user_image_view"
-            android:text="Имя"/>
+            android:text="Name"/>
 
         <TextView
             android:id="@+id/city_event"
@@ -47,7 +47,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="30dp"
             android:layout_toRightOf="@+id/user_image_view"
-            android:text="Москва"/>
+            android:text="Berlin"/>
 
 
     </RelativeLayout>
@@ -75,7 +75,7 @@
             android:textSize="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:text="Владелец"/>
+            android:text="Owner"/>
         <TextView
             android:id="@+id/result_vlad"
             android:visibility="gone"
@@ -85,7 +85,7 @@
             android:textSize="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:text="Имяtrhtrhrthj"/>
+            android:text="Name"/>
 
         <TextView
             android:id="@+id/info2"
@@ -108,7 +108,7 @@
             android:visibility="gone"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:text="Имяtrhtrhrthj"/>
+            android:text="Name"/>
 
         <TextView
             android:id="@+id/info3"
@@ -129,7 +129,7 @@
             android:textSize="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:text="Имяtrhtrhrthj"/>
+            android:text="Name"/>
 
 
         <TextView
@@ -141,7 +141,7 @@
             android:layout_below="@+id/info3"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:text="Дата покупки"/>
+            android:text="Date of purchase"/>
         <TextView
             android:id="@+id/result_date"
             android:layout_width="wrap_content"
@@ -151,7 +151,7 @@
             android:textSize="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:text="Имяtrhtrhrthj"/>
+            android:text="Name"/>
 
 
         <TextView
@@ -163,7 +163,7 @@
             android:layout_below="@+id/info4"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:text="ID билета"/>
+            android:text="Ticket ID"/>
         <TextView
             android:id="@+id/result_id_ticket"
             android:layout_width="wrap_content"
@@ -173,7 +173,7 @@
             android:textSize="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:text="Имяtrhtrhrthj"/>
+            android:text="Name"/>
 
 
         <TextView
@@ -185,7 +185,7 @@
             android:layout_below="@+id/info5"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:text="Цена"/>
+            android:text="Price"/>
         <TextView
             android:id="@+id/result_price"
             android:layout_width="wrap_content"
@@ -195,7 +195,7 @@
             android:textSize="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:text="Имяtrhtrhrthj"/>
+            android:text="Name"/>
 
 
     </RelativeLayout>
@@ -217,20 +217,20 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="Открыть"
+            android:text="Open"
             android:background="@drawable/btn_rounded"
             android:id="@+id/open_btn"/>
         <Button
             android:layout_width="match_parent"
             android:layout_weight="1"
-            android:text="Отправить"
+            android:text="Send"
             android:background="@drawable/btn_rounded"
             android:layout_height="match_parent"
             android:id="@+id/send_button"/>
         <Button
             android:layout_width="match_parent"
             android:layout_weight="1"
-            android:text="Показать"
+            android:text="Show"
             android:background="@drawable/btn_rounded"
             android:layout_height="match_parent"
             android:id="@+id/show_btn"/>

@@ -5,11 +5,11 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -31,7 +31,7 @@ import come.manager.direct.hackuniversity.model.Event;
 import come.manager.direct.hackuniversity.org.web3j.sample.Ticket;
 
 public class EventInfo extends AppCompatActivity {
-    public final AsyncDownLoad asyncDownLoad= new AsyncDownLoad();
+    public final AsyncDownLoad asyncDownLoad = new AsyncDownLoad();
     Event event1;
     ProgressBar progressBar;
 
@@ -41,7 +41,7 @@ public class EventInfo extends AppCompatActivity {
         setContentView(R.layout.activity_event_info);
 
         String[] event = getIntent().getStringArrayExtra("event");
-         event1 = getIntent().getParcelableExtra("eventdat");
+        event1 = getIntent().getParcelableExtra("eventdat");
 
         TextView city = findViewById(R.id.city_event);
         TextView name = findViewById(R.id.name_event);
@@ -79,7 +79,7 @@ public class EventInfo extends AppCompatActivity {
 
         if (event[0].equals("true")) {
             imageView.setImageResource(R.drawable.open_letter);
-          button1.setEnabled(false);
+            button1.setEnabled(false);
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -98,8 +98,8 @@ public class EventInfo extends AppCompatActivity {
             buttonShow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),  ImageActivity.class);
-                    intent.putExtra("status",true);
+                    Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
+                    intent.putExtra("status", true);
                     startActivity(
                             intent
                     );
@@ -126,8 +126,8 @@ public class EventInfo extends AppCompatActivity {
 
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),  ImageActivity.class);
-                    intent.putExtra("status",false);
+                    Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
+                    intent.putExtra("status", false);
                     startActivity(
                             intent
                     );
@@ -142,35 +142,35 @@ public class EventInfo extends AppCompatActivity {
         @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            String title = "Предупреждение!";
-            String message = "Вы уверены, что хотите это сделать?";
-            String button1String = "Да";
-            String button2String = "Нет";
+            String title = "Warning!";
+            String message = "Are you sure you want to do this?";
+            String button1String = "Yes";
+            String button2String = "No";
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setTitle(title);  // заголовок
             builder.setMessage(message); // сообщение
             builder.setPositiveButton(button1String, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    Toast.makeText(getActivity(), "Вы сделали правильный выбор, подождите",
+                    Toast.makeText(getActivity(), "You made the right choice, wait.",
                             Toast.LENGTH_LONG).show();
 
                     dismiss();
                     try {
-                        new AsyncDownLoad().execute(((EventInfo)getActivity()).event1).get();
+                        new AsyncDownLoad().execute(((EventInfo) getActivity()).event1).get();
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     getActivity().finish();
-                    startActivity(new Intent(getActivity(),PinActivity.class));
+                    startActivity(new Intent(getActivity(), PinActivity.class));
 
                 }
             });
             builder.setNegativeButton(button2String, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    Toast.makeText(getActivity(), "Возможно вы правы", Toast.LENGTH_LONG)
+                    Toast.makeText(getActivity(), "Maybe you're right", Toast.LENGTH_LONG)
                             .show();
                 }
             });
@@ -179,6 +179,7 @@ public class EventInfo extends AppCompatActivity {
             return builder.create();
         }
     }
+
     @SuppressLint("ValidFragment")
     private static class DialogFragmentMy extends DialogFragment {
 
@@ -193,7 +194,7 @@ public class EventInfo extends AppCompatActivity {
             buttonCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getActivity(), "Отмена",
+                    Toast.makeText(getActivity(), "Cancel",
                             Toast.LENGTH_LONG).show();
                     dismiss();
                 }
@@ -202,7 +203,7 @@ public class EventInfo extends AppCompatActivity {
             buttonSend.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getActivity(), "Отправить",
+                    Toast.makeText(getActivity(), "Send",
                             Toast.LENGTH_LONG).show();
                     dismiss();
                 }
@@ -214,12 +215,10 @@ public class EventInfo extends AppCompatActivity {
     }
 
 
-
     static class AsyncDownLoad extends AsyncTask<Event, Void, Void> {
 
         public String jsonUTC =
                 "{\"version\":3,\"id\":\"c9590b3f-e2eb-4a3f-96d1-0e5dcd304f7c\",\"address\":\"20cf3a494baacae2a74bf81b0e55970b756baa70\",\"Crypto\":{\"ciphertext\":\"650c7e4f2f80ae80426a8e3ea4d1cab891beea3854f010e816d9e2e7d4396984\",\"cipherparams\":{\"iv\":\"110a91cc184227022877ed6b0931cfd1\"},\"cipher\":\"aes-128-ctr\",\"kdf\":\"scrypt\",\"kdfparams\":{\"dklen\":32,\"salt\":\"ee158b8d1c315b6c6a777bd114896051e4e06e68e506f3df9ba4b556ce89e730\",\"n\":8192,\"r\":8,\"p\":1},\"mac\":\"2cec2b9449980cca057a62cdcd284d499f96a533093c559eb60132af61483747\"}}";
-
 
 
         @Override
@@ -235,16 +234,16 @@ public class EventInfo extends AppCompatActivity {
             Web3j web3j = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/16480bf5a9ae46e79bca1aa836873e5f"));
             BigInteger _price = BigInteger.ONE;
             _price = BigInteger.valueOf(10);
-                String address = voids[0].getOwner();
-                BigInteger _steps = BigInteger.ONE;
-                _steps = BigInteger.valueOf(3);
-                // We then need to load our Ethereum wallet file
-                // FIXME: Generate a new wallet file using the web3j command line tools https://docs.web3j.io/command_line.html
-                Credentials credentials1 = Credentials.create("9c215ede75b688ce2f30372140068c815b78b2eedfe8bd9af04d8d7fddd8ef2e");
+            String address = voids[0].getOwner();
+            BigInteger _steps = BigInteger.ONE;
+            _steps = BigInteger.valueOf(3);
+            // We then need to load our Ethereum wallet file
+            // FIXME: Generate a new wallet file using the web3j command line tools https://docs.web3j.io/command_line.html
+            Credentials credentials1 = Credentials.create("9c215ede75b688ce2f30372140068c815b78b2eedfe8bd9af04d8d7fddd8ef2e");
 
-                Ticket contract1 =
-                        Ticket.load(address, web3j, credentials1, ManagedTransaction.GAS_PRICE,
-                                Contract.GAS_LIMIT);
+            Ticket contract1 =
+                    Ticket.load(address, web3j, credentials1, ManagedTransaction.GAS_PRICE,
+                            Contract.GAS_LIMIT);
             try {
                 String s = contract1.Who_owner().send();
                 contract1.Open().send().toString();

@@ -20,7 +20,7 @@ import android.widget.TextView;
  * Use the {@link BlankFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CloseListFragment extends Fragment{
+public class CloseListFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -68,10 +68,10 @@ public class CloseListFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-        String [] numbers = {"Oergregrene", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+        String[] numbers = {"Oergregrene", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
 
         rvNumbers = (RecyclerView) view.findViewById(R.id.rv_numbers);
         rvNumbers.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -117,7 +117,7 @@ public class CloseListFragment extends Fragment{
     class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
         String listData[];
 
-        public RecyclerViewAdapter(String data[]){
+        public RecyclerViewAdapter(String data[]) {
             this.listData = data;
         }
 
@@ -140,6 +140,7 @@ public class CloseListFragment extends Fragment{
 
         class ViewHolder extends RecyclerView.ViewHolder {
             public TextView tvNumber;
+
             public ViewHolder(View v) {
                 super(v);
 //                tvNumber = (TextView) v.findViewById(R.id.tv_number);

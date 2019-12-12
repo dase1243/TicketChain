@@ -27,7 +27,7 @@ import come.manager.direct.hackuniversity.model.Event;
  * Use the {@link BlankFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BlankFragment extends Fragment  {
+public class BlankFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +35,8 @@ public class BlankFragment extends Fragment  {
     ArrayList<Event> arrayList;
     private WebView webView;
     private static final String ARG_PARAM2 = "param2";
-    private RecyclerView rvNumbers;;
+    private RecyclerView rvNumbers;
+    ;
     // TODO: Rename and change types of parameters
     private ArrayList<Event> mParam1;
     private String mParam2;
@@ -77,7 +78,7 @@ public class BlankFragment extends Fragment  {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
         ArrayList<Event> events = new ArrayList<>();
@@ -97,7 +98,7 @@ public class BlankFragment extends Fragment  {
 
         rvNumbers = (RecyclerView) view.findViewById(R.id.rv_numbers);
         rvNumbers.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rvNumbers.setAdapter(new RecyclerViewAdapter(mParam1,(ActivityWithWebView)getActivity()));
+        rvNumbers.setAdapter(new RecyclerViewAdapter(mParam1, (ActivityWithWebView) getActivity()));
         return view;
     }
 
@@ -141,7 +142,7 @@ public class BlankFragment extends Fragment  {
         ArrayList<Event> listData;
         private final OnItemClickListener listener;
 
-        public RecyclerViewAdapter(ArrayList<Event> data,OnItemClickListener clickListener){
+        public RecyclerViewAdapter(ArrayList<Event> data, OnItemClickListener clickListener) {
             this.listData = data;
             listener = clickListener;
         }
@@ -155,17 +156,18 @@ public class BlankFragment extends Fragment  {
 
         @Override
         public void onBindViewHolder(EventViewHolder personViewHolder, int i) {
-            personViewHolder.bind(listData.get(i),listener);
+            personViewHolder.bind(listData.get(i), listener);
             personViewHolder.personName.setText(listData.get(i).getName());
             personViewHolder.personAge.setText(listData.get(i).getCity());
             personViewHolder.personPhoto.setImageResource(new Integer(listData.get(i).getImage()));
 
-            if(listData.get(i).getStatus().equals("true")) {
+            if (listData.get(i).getStatus().equals("true")) {
                 personViewHolder.status.setImageResource(R.drawable.open_letter);
             } else {
                 personViewHolder.status.setImageResource(R.drawable.close_letter);
             }
         }
+
         @Override
         public int getItemCount() {
             return listData.size();
@@ -178,12 +180,13 @@ public class BlankFragment extends Fragment  {
             ImageView personPhoto;
             ImageView status;
             ImageButton send;
+
             EventViewHolder(View itemView) {
                 super(itemView);
-                cv = (CardView)itemView.findViewById(R.id.cv);
-                personName = (TextView)itemView.findViewById(R.id.person_name);
-                personAge = (TextView)itemView.findViewById(R.id.person_age);
-                personPhoto = (ImageView)itemView.findViewById(R.id.person_photo);
+                cv = (CardView) itemView.findViewById(R.id.cv);
+                personName = (TextView) itemView.findViewById(R.id.person_name);
+                personAge = (TextView) itemView.findViewById(R.id.person_age);
+                personPhoto = (ImageView) itemView.findViewById(R.id.person_photo);
                 status = itemView.findViewById(R.id.status_image);
                 send = itemView.findViewById(R.id.send_button);
             }
@@ -191,18 +194,19 @@ public class BlankFragment extends Fragment  {
             public void bind(final Event item, final OnItemClickListener listener) {
                 personName.setText(item.getName());
                 personAge.setText(item.getCity());
-try {
-    personPhoto.setImageResource(new Integer(item.getImage()));
-}catch (Exception e) {
-    personPhoto.setImageResource(R.drawable.logo);
-}
-                if(item.getStatus().equals("true")) {
+                try {
+                    personPhoto.setImageResource(new Integer(item.getImage()));
+                } catch (Exception e) {
+                    personPhoto.setImageResource(R.drawable.logo);
+                }
+                if (item.getStatus().equals("true")) {
                     status.setImageResource(R.drawable.open_letter);
                 } else {
                     status.setImageResource(R.drawable.close_letter);
                 }
                 itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override public void onClick(View v) {
+                    @Override
+                    public void onClick(View v) {
                         listener.onItemClick(item);
                     }
                 });

@@ -1,19 +1,12 @@
 package come.manager.direct.hackuniversity;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -27,10 +20,11 @@ import java.util.ArrayList;
 import come.manager.direct.hackuniversity.model.Event;
 
 public class ActivityWithWebView extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener,BlankFragment.OnItemClickListener{
+        implements NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener, BlankFragment.OnItemClickListener {
 
-;
+    ;
     ArrayList<Event> eventArrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,12 +94,12 @@ public class ActivityWithWebView extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-      if (id == R.id.my_ticket) {
+        if (id == R.id.my_ticket) {
             commitFragment(BlankFragment.newInstance(eventArrayList, null), getSupportFragmentManager());
         } else if (id == R.id.exit) {
-          Intent intent = new Intent(this, LoginActivity.class);
-          finish();
-          startActivity(intent);
+            Intent intent = new Intent(this, LoginActivity.class);
+            finish();
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -130,12 +124,12 @@ public class ActivityWithWebView extends AppCompatActivity
     public void onItemClick(Event item) {
 
         Intent intent = new Intent(getApplicationContext(), EventInfo.class);
-        String[] s = new String[]{item.getStatus(),item.getCity(),item.getDate(),
-        item.getEmail(),item.getFio(),
-                item.getTicketId(),item.getPrice(),item.getOwner(),
-                item.getName(),item.getImage()};
-        intent.putExtra("eventdat",item);
-        intent.putExtra("event",s);
+        String[] s = new String[]{item.getStatus(), item.getCity(), item.getDate(),
+                item.getEmail(), item.getFio(),
+                item.getTicketId(), item.getPrice(), item.getOwner(),
+                item.getName(), item.getImage()};
+        intent.putExtra("eventdat", item);
+        intent.putExtra("event", s);
         startActivity(intent);
     }
 

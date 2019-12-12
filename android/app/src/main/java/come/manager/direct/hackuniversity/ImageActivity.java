@@ -1,9 +1,9 @@
 package come.manager.direct.hackuniversity;
 
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.ImageView;
 
 import net.glxn.qrgen.android.QRCode;
@@ -33,14 +33,12 @@ public class ImageActivity extends AppCompatActivity {
         // send the signed transaction to the ethereum client
 
 
-
-
         MessageDigest digest = null;
         byte[] output = null;
         String pas = "password";
         try {
             digest = MessageDigest.getInstance("SHA512");
-            output = digest.digest( pas.getBytes("UTF-8"));
+            output = digest.digest(pas.getBytes("UTF-8"));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
@@ -72,7 +70,7 @@ public class ImageActivity extends AppCompatActivity {
 //                    }
 //                });
 
-        if(getIntent().getBooleanExtra("status",false)) {
+        if (getIntent().getBooleanExtra("status", false)) {
             NetworkService.getInstance()
                     .getJSONApi()
                     .getPostWithID(11)

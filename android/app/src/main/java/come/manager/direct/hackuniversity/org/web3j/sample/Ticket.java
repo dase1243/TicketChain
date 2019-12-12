@@ -1,8 +1,5 @@
 package come.manager.direct.hackuniversity.org.web3j.sample;
 
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.Collections;
 import org.web3j.abi.FunctionEncoder;
 import org.web3j.abi.TypeReference;
 import org.web3j.abi.datatypes.Address;
@@ -18,11 +15,15 @@ import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.tx.Contract;
 import org.web3j.tx.TransactionManager;
 
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Collections;
+
 /**
  * <p>Auto generated code.
  * <p><strong>Do not modify!</strong>
  * <p>Please use the <a href="https://docs.web3j.io/command_line.html">web3j command line tools</a>,
- * or the org.web3j.codegen.SolidityFunctionWrapperGenerator in the 
+ * or the org.web3j.codegen.SolidityFunctionWrapperGenerator in the
  * <a href="https://github.com/web3j/web3j/tree/master/codegen">codegen module</a> to update.
  *
  * <p>Generated with web3j version 3.4.0.
@@ -65,96 +66,107 @@ public class Ticket extends Contract {
     }
 
     public RemoteCall<String> Ticket_ID() {
-        final Function function = new Function(FUNC_TICKET_ID, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}));
+        final Function function = new Function(FUNC_TICKET_ID,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, String.class);
     }
 
     public RemoteCall<TransactionReceipt> Delegate(String _user, String _person_info) {
         final Function function = new Function(
-                FUNC_DELEGATE, 
+                FUNC_DELEGATE,
                 Arrays.<Type>asList(new Address(_user),
-                new Utf8String(_person_info)),
+                        new Utf8String(_person_info)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<String> Date() {
-        final Function function = new Function(FUNC_DATE, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}));
+        final Function function = new Function(FUNC_DATE,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, String.class);
     }
 
     public RemoteCall<String> Who_owner() {
-        final Function function = new Function(FUNC_WHO_OWNER, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
+        final Function function = new Function(FUNC_WHO_OWNER,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, String.class);
     }
 
     public RemoteCall<TransactionReceipt> Open() {
         final Function function = new Function(
-                FUNC_OPEN, 
-                Arrays.<Type>asList(), 
+                FUNC_OPEN,
+                Arrays.<Type>asList(),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<String> Place() {
-        final Function function = new Function(FUNC_PLACE, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}));
+        final Function function = new Function(FUNC_PLACE,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, String.class);
     }
 
     public RemoteCall<String> Person_info() {
-        final Function function = new Function(FUNC_PERSON_INFO, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}));
+        final Function function = new Function(FUNC_PERSON_INFO,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, String.class);
     }
 
     public RemoteCall<String> Get_all() {
-        final Function function = new Function(FUNC_GET_ALL, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}));
+        final Function function = new Function(FUNC_GET_ALL,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, String.class);
     }
 
     public RemoteCall<String> Name() {
-        final Function function = new Function(FUNC_NAME, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}));
+        final Function function = new Function(FUNC_NAME,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, String.class);
     }
 
     public RemoteCall<BigInteger> Price() {
-        final Function function = new Function(FUNC_PRICE, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
+        final Function function = new Function(FUNC_PRICE,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, BigInteger.class);
     }
 
     public RemoteCall<BigInteger> When_active() {
-        final Function function = new Function(FUNC_WHEN_ACTIVE, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
+        final Function function = new Function(FUNC_WHEN_ACTIVE,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, BigInteger.class);
     }
 
     public RemoteCall<BigInteger> When_open() {
-        final Function function = new Function(FUNC_WHEN_OPEN, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
+        final Function function = new Function(FUNC_WHEN_OPEN,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, BigInteger.class);
     }
 
     public RemoteCall<Boolean> Is_active() {
-        final Function function = new Function(FUNC_IS_ACTIVE, 
-                Arrays.<Type>asList(), 
-                Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {}));
+        final Function function = new Function(FUNC_IS_ACTIVE,
+                Arrays.<Type>asList(),
+                Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {
+                }));
         return executeRemoteCallSingleValueReturn(function, Boolean.class);
     }
 

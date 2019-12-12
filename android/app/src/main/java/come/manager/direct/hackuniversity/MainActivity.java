@@ -1,16 +1,11 @@
 package come.manager.direct.hackuniversity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
 
-import net.glxn.qrgen.android.QRCode;
-
-public class MainActivity  extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private final int SPLASH_DISPLAY_LENGHT = 2_000;
 

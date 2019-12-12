@@ -3,9 +3,10 @@ package come.manager.direct.hackuniversity.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Event  implements Parcelable {
+public class Event implements Parcelable {
 
-    public Event(){}
+    public Event() {
+    }
 
     public String getImage() {
         return image;
@@ -122,7 +123,7 @@ public class Event  implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeStringArray(new String[] {  image,  city,  name,  owner,  email,  fio,  date,  ticketId,  price,  status });
+        dest.writeStringArray(new String[]{image, city, name, owner, email, fio, date, ticketId, price, status});
     }
 
     public static final Parcelable.Creator<Event> CREATOR = new Parcelable.Creator<Event>() {

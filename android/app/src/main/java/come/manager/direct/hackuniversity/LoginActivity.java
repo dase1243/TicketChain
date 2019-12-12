@@ -1,33 +1,16 @@
 package come.manager.direct.hackuniversity;
+
 import android.app.ProgressDialog;
-import android.graphics.Bitmap;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
-import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import net.glxn.qrgen.android.QRCode;
-
-import org.web3j.crypto.Credentials;
-import org.web3j.crypto.ECDSASignature;
-import org.web3j.crypto.ECKeyPair;
-import org.web3j.crypto.Keys;
-import org.web3j.crypto.Sign;
-import org.web3j.crypto.TransactionEncoder;
-import org.web3j.utils.Convert;
-import org.web3j.utils.Numeric;
-
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,13 +19,16 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-    @BindView(R.id.input_email) EditText _emailText;
-    @BindView(R.id.input_password) EditText _passwordText;
-    @BindView(R.id.btn_login) Button _loginButton;
-    @BindView(R.id.link_signup) TextView _signupLink;
+    @BindView(R.id.input_email)
+    EditText _emailText;
+    @BindView(R.id.input_password)
+    EditText _passwordText;
+    @BindView(R.id.btn_login)
+    Button _loginButton;
+    @BindView(R.id.link_signup)
+    TextView _signupLink;
     @BindView(R.id.logoqr)
     ImageView qr;
-
 
 
     @Override
@@ -141,11 +127,6 @@ public class LoginActivity extends AppCompatActivity {
 
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
-
-
-
-
-
 
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
