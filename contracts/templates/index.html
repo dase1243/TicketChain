@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html style="height: 100%" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Empty spaces</title>
+
+    <style>
+        .space {
+            width: 70px;
+            height: 70px;
+            margin: 20px;
+            background-color: sandybrown;
+        }
+        #layout {
+            margin: 150px auto;
+            height: 50%;
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="layout">
+    <div id="1" class="space"></div>
+    <div id="2" class="space"></div>
+    <div id="3" class="space"></div>
+    <div id="4" class="space"></div>
+    <div id="5" class="space"></div>
+    <div id="6" class="space"></div>
+
+    <div id="7" class="space"></div>
+    <div id="8" class="space"></div>
+    <div id="9" class="space"></div>
+    <div id="10" class="space"></div>
+    <div id="11" class="space"></div>
+    <div id="12" class="space"></div>
+
+    <div id="13" class="space"></div>
+    <div id="14" class="space"></div>
+    <div id="15" class="space"></div>
+    <div id="16" class="space"></div>
+    <div id="17" class="space"></div>
+    <div id="18" class="space"></div>
+</div>
+
+
+<script>
+for (let i = 1; i <= 18; i++) {
+    fetch(`/exist/${i}`).then(
+        response => response.json()).then(
+            myJson => {
+                if (myJson['status']) {
+                    document.getElementById(String(i)).style.backgroundColor="green";
+                }
+            }
+        );
+}
+</script>
+</body>
+</html>
