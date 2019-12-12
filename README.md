@@ -1,6 +1,5 @@
 # TicketChain
 
-# SaveTickets
 
 ## It's a monorepo for Android and Web apps, Smart Contracts and other utils.
 Read more detailed explanation of project [here](./Ticket.pdf).
