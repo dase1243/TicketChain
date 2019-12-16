@@ -106,7 +106,8 @@ public class PinActivity extends AppCompatActivity {
         protected ArrayList<Event> doInBackground(Module[]... voids) {
 
 
-            Web3j web3j = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/16480bf5a9ae46e79bca1aa836873e5f"));
+            Web3j web3j = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/50b27a4aa1cc4f9cabc7d1e17d00cdf3"));
+//            Web3j web3j = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/16480bf5a9ae46e79bca1aa836873e5f"));
             BigInteger _price = BigInteger.ONE;
             ArrayList<Event> events = new ArrayList<>();
             _price = BigInteger.valueOf(10);
@@ -186,8 +187,6 @@ public class PinActivity extends AppCompatActivity {
 
         @Override
         protected Module[] doInBackground(String... voids) {
-
-
             String s = "";
             try {
                 s = doGet(myURL + voids[0]);
